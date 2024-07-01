@@ -13,6 +13,9 @@ RUN go mod download
 # https://docs.docker.com/reference/dockerfile/#copy
 COPY *.go ./
 
+COPY chatui.html ./
+RUN mkdir ./static
+
 # Build
 RUN CGO_ENABLED=0 GOOS=linux go build -o /server
 
